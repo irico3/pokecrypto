@@ -13,7 +13,7 @@ def encrypt(str: str, encrypt_list):
             raise RuntimeError("文字が見つかりませんでした。: " + str)
         splitted = split_str(str, len(str) - 1)
         for s in splitted:
-            encrypt(s)
+            encrypt(s, encrypt_list)
     else:
         print("平文: " + str)
 
@@ -27,7 +27,7 @@ def encrypt(str: str, encrypt_list):
         version_name = pick_result["pokemon_v2_version"]["name"]
         id = pick_result["pokemon_species_id"]
         encrypt_text = (
-            f"{version_name}{id}/{flavor_index}-{flavor_index +(len(str) - 1)}"
+            f"{version_name}{id}/{flavor_index + 1}-{flavor_index +(len(str))}"
         )
         encrypt_list.append(encrypt_text)
         print("暗号化: " + encrypt_text)

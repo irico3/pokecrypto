@@ -11,6 +11,7 @@ def main():
 
     encrypt_line = "".join(encrypt_list)
     print("暗号結果", encrypt_line)
+    return encrypt_line
 
 
 main()
