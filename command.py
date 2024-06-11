@@ -1,6 +1,8 @@
 import re
 import sys
 
+from lib.split_str import split_str
+
 SPLIT_STEP = 3
 
 
@@ -11,8 +13,8 @@ def make_split_str():
         if not re.search(r"[ぁ-ゔ]+|[ー]+", text):
             raise IndexError
 
-        split_str = [text[i : i + SPLIT_STEP] for i in range(0, len(text), SPLIT_STEP)]
-        return split_str
+        str_list = split_str(text, SPLIT_STEP)
+        return str_list
     except IndexError:
         print("正しい文字を入力してください。ひらがなのみ対応しています。")
         sys.exit()
